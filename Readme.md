@@ -1,4 +1,4 @@
-#使用说明
+# 使用说明
 
 > 目前支持两个功能, spot购买现货，check查看tickers
 
@@ -23,7 +23,7 @@
  -u string
         API based URL used
  
- ##Example
+ ## Example
  `gate_auto_trade.exe -func check -k test -s test -cp GT_USDT`
  
 `gate_auto_trade.exe -func spot -k test -s test -cp GT_USDT -a 1 -p 6.2`
