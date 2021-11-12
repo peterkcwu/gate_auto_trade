@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="BranchesTreeState">
+    <expand>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="LOCAL_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+    </expand>
+    <select />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="ae427d33-9154-4a62-adc9-762d70b7a905" name="Default Changelist" comment="Readme">
+      <change afterPath="$PROJECT_DIR$/.idea/gate_auto_trade.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/watcherTasks.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Go Application" />
+        <option value="Go File" />
+      </list>
+    </option>
+  </component>
+  <component name="GOROOT" path="E:\JetBrains\go1.16" />
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="GoLibraries">
+    <option name="indexEntireGoPath" value="false" />
+  </component>
+  <component name="ProjectId" id="20oblktNzvMnjj9OjSVwvxDHk7X" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="DefaultGoTemplateProperty" value="Go File" />
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="go.import.settings.migrated" value="true" />
+    <property name="go.tried.to.enable.integration.vgo.integrator" value="true" />
+    <property name="last_opened_file_path" value="$USER_HOME$" />
+    <property name="settings.editor.selected.configurable" value="watcher.settings" />
+  </component>
+  <component name="RunManager">
+    <configuration name="go build github.com/peterkcwu/gate_auto_trade" type="GoApplicationRunConfiguration" factoryName="Go Application" temporary="true" nameIsGenerated="true">
+      <module name="gate_auto_trade" />
+      <working_directory value="$PROJECT_DIR$" />
+      <kind value="PACKAGE" />
+      <filePath value="$PROJECT_DIR$/main.go" />
+      <package value="github.com/peterkcwu/gate_auto_trade" />
+      <directory value="$PROJECT_DIR$" />
+      <method v="2" />
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Go Build.go build github.com/peterkcwu/gate_auto_trade" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="init" />
+    <MESSAGE value="Readme" />
+    <option name="LAST_COMMIT_MESSAGE" value="Readme" />
+  </component>
+  <component name="VgoProject">
+    <integration-enabled>true</integration-enabled>
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="817" y="390" key="#Go_Modules" timestamp="1636714092281">
+      <screen x="0" y="0" width="2048" height="1112" />
+    </state>
+    <state x="817" y="390" key="#Go_Modules/0.0.2048.1112@0.0.2048.1112" timestamp="1636714092281" />
+    <state width="2005" height="292" key="GridCell.Tab.0.bottom" timestamp="1636726596004">
+      <screen x="0" y="0" width="2048" height="1112" />
+    </state>
+    <state width="2005" height="292" key="GridCell.Tab.0.bottom/0.0.2048.1112@0.0.2048.1112" timestamp="1636726596004" />
+    <state width="2005" height="292" key="GridCell.Tab.0.center" timestamp="1636726596004">
+      <screen x="0" y="0" width="2048" height="1112" />
+    </state>
+    <state width="2005" height="292" key="GridCell.Tab.0.center/0.0.2048.1112@0.0.2048.1112" timestamp="1636726596004" />
+    <state width="2005" height="292" key="GridCell.Tab.0.left" timestamp="1636726596004">
+      <screen x="0" y="0" width="2048" height="1112" />
+    </state>
+    <state width="2005" height="292" key="GridCell.Tab.0.left/0.0.2048.1112@0.0.2048.1112" timestamp="1636726596004" />
+    <state width="2005" height="292" key="GridCell.Tab.0.right" timestamp="1636726596004">
+      <screen x="0" y="0" width="2048" height="1112" />
+    </state>
+    <state width="2005" height="292" key="GridCell.Tab.0.right/0.0.2048.1112@0.0.2048.1112" timestamp="1636726596004" />
+    <state x="526" y="201" key="SettingsEditor" timestamp="1636722287035">
+      <screen x="0" y="0" width="2048" height="1112" />
+    </state>
+    <state x="526" y="201" key="SettingsEditor/0.0.2048.1112@0.0.2048.1112" timestamp="1636722287035" />
+    <state x="617" y="289" key="Vcs.Push.Dialog.v2" timestamp="1636728793429">
+      <screen x="0" y="0" width="2048" height="1112" />
+    </state>
+    <state x="617" y="289" key="Vcs.Push.Dialog.v2/0.0.2048.1112@0.0.2048.1112" timestamp="1636728793429" />
+  </component>
+</project>
