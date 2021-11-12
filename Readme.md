@@ -5,17 +5,17 @@
 `go build`
 
 
--func <spot/check> 
+-func spot/check
 
--k <api-key> 
+-k api-key>
 
--s <api-secret> 
+-s api-secret 
 
--a <order-amount> 
+-a order-amount 
 
--p <order-price> 
+-p order-price 
 
--cp <currency-pair>
+-cp currency-pair
  
 -a string
         order amount
