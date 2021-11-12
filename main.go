@@ -60,8 +60,6 @@ func main() {
 	rand.Seed(time.Now().Unix())
 	currencyPair2, _ := GetCurrentPair(currencyPair)
 	fmt.Println(currencyPair2)
-	args := flag.Args()
-	fmt.Println(args)
 
 	switch functionName {
 	case "spot":
