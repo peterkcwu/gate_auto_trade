@@ -17,7 +17,7 @@ var logger = log.New(flag.CommandLine.Output(), "", log.LstdFlags)
 
 func panicGateError(err error) {
 	if e, ok := err.(gateapi.GateAPIError); ok {
-		logrus.Fatal(fmt.Sprintf("Gate API error, label: %s, message: %s", e.Label, e.Message))
+		logrus.Error(fmt.Sprintf("Gate API error, label: %s, message: %s", e.Label, e.Message))
 	}
 	log.Fatal(err)
 }
@@ -28,6 +28,7 @@ func main() {
 	flag.StringVar(&key, "k", "", "Gate APIv4 key")
 	flag.StringVar(&secret, "s", "", "Gate APIv4 secret")
 	flag.StringVar(&baseUrl, "u", "", "API based URL used")
+	//买多少当前币种
 	flag.StringVar(&orderAmount, "a", "", "order amount")
 	flag.StringVar(&orderPrice, "p", "", "order price")
 	flag.StringVar(&currencyPair, "cp", "", "currency pair")
@@ -40,8 +41,6 @@ func main() {
 		panic(err)
 	}
 	if key == "" || secret == "" {
-		logger.Println(key)
-		logger.Println(secret)
 		logger.Println(usage)
 		flag.PrintDefaults()
 		os.Exit(1)
@@ -61,28 +60,47 @@ func main() {
 	}*/
 	runConfig, err := NewRunConfig(key, secret, &baseUrl)
 	if err != nil {
-		logrus.WithFields(logrus.Fields{"config setting": runConfig}).Fatal("当前配置出错")
+		logrus.WithFields(logrus.Fields{"config setting": runConfig}).Error("当前配置出错")
 		os.Exit(1)
 	}
 	logrus.Info("launch auto spot services")
 	logrus.WithFields(logrus.Fields{"config setting": runConfig}).Info("当前配置")
 	rand.Seed(time.Now().Unix())
-	currencyPair2, _ := GetCurrentPair(currencyPair)
+	currencyPair2, err := GetCurrentPair(currencyPair)
+	if err != nil {
+		panicGateError(err)
+	}
 	fmt.Println(currencyPair2)
-
+	tradeStatus := currencyPair2.TradeStatus
 	switch functionName {
 	case "buy":
 		logrus.Info("start spot buy")
+		logrus.WithFields(logrus.Fields{"trade status": tradeStatus}).Info("当前币种交易状态")
+		for tradeStatus != "tradable" {
+			logger.Println("当前不可交易，请等待....")
+			tmp, err := GetCurrentPair(currencyPair)
+			if err != nil {
+				panicGateError(err)
+			}
+			tradeStatus = tmp.TradeStatus
+			logrus.WithFields(logrus.Fields{"trade status": tradeStatus}).Info("刷新后当前币种交易状态")
+		}
+		logrus.WithFields(logrus.Fields{"trade status": tradeStatus,
+			"购买数量": orderAmount,
+			"购买价格": orderPrice,
+		}).Info("开始买币")
 		SpotBuy(runConfig, orderAmount, orderPrice, currencyPair)
 	case "check":
 		logrus.Info("start list tickers")
 		ListTickers(runConfig, currencyPair)
 	case "sell":
 		logrus.Info("start sell spot")
+		SpotSell(runConfig, orderAmount, orderPrice, currencyPair)
 	case "cancel":
 		logrus.Info("cancel spot")
 	default:
-		logrus.Fatal("Invalid function provided. Available: spot, check")
+		logrus.Error("Invalid function provided. Available: buy,sell, check")
+		logger.Fatal("Invalid function provided. Available: spot,sell, check")
 	}
 
 }

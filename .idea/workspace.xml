@@ -10,13 +10,8 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="ae427d33-9154-4a62-adc9-762d70b7a905" name="Default Changelist" comment="Readme">
-      <change afterPath="$PROJECT_DIR$/log.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/gate_auto_trade.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/gate_auto_trade.iml" afterDir="false" />
+    <list default="true" id="ae427d33-9154-4a62-adc9-762d70b7a905" name="Default Changelist" comment="增加log日志文件输出">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/go.mod" beforeDir="false" afterPath="$PROJECT_DIR$/go.mod" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/go.sum" beforeDir="false" afterPath="$PROJECT_DIR$/go.sum" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/main.go" beforeDir="false" afterPath="$PROJECT_DIR$/main.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/spot.go" beforeDir="false" afterPath="$PROJECT_DIR$/spot.go" afterDir="false" />
     </list>
@@ -90,7 +85,8 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="init" />
     <MESSAGE value="Readme" />
-    <option name="LAST_COMMIT_MESSAGE" value="Readme" />
+    <MESSAGE value="增加log日志文件输出" />
+    <option name="LAST_COMMIT_MESSAGE" value="增加log日志文件输出" />
   </component>
   <component name="VgoProject">
     <integration-enabled>true</integration-enabled>
@@ -120,9 +116,9 @@
       <screen x="0" y="0" width="2048" height="1112" />
     </state>
     <state x="526" y="201" key="SettingsEditor/0.0.2048.1112@0.0.2048.1112" timestamp="1636722287035" />
-    <state x="617" y="289" key="Vcs.Push.Dialog.v2" timestamp="1636728793429">
+    <state x="617" y="289" key="Vcs.Push.Dialog.v2" timestamp="1636770307531">
       <screen x="0" y="0" width="2048" height="1112" />
     </state>
-    <state x="617" y="289" key="Vcs.Push.Dialog.v2/0.0.2048.1112@0.0.2048.1112" timestamp="1636728793429" />
+    <state x="617" y="289" key="Vcs.Push.Dialog.v2/0.0.2048.1112@0.0.2048.1112" timestamp="1636770307531" />
   </component>
 </project>
