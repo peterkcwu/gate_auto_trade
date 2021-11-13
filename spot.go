@@ -6,6 +6,7 @@ import (
 	"github.com/antihax/optional"
 	"github.com/gateio/gateapi-go/v5"
 	"github.com/shopspring/decimal"
+	"github.com/sirupsen/logrus"
 )
 
 func GetCurrentPair(currencyPair string) (gateapi.CurrencyPair, error) {
@@ -19,6 +20,9 @@ func GetCurrentPair(currencyPair string) (gateapi.CurrencyPair, error) {
 	if err != nil {
 		return gateapi.CurrencyPair{}, err
 	} else {
+		logrus.WithFields(logrus.Fields{
+			"Current pair": result,
+		}).Info("当前CP")
 		return result, nil
 	}
 }
@@ -41,10 +45,13 @@ func ListTickers(config *RunConfig, currencyPair string) {
 	if err != nil {
 		panicGateError(err)
 	}
+	logrus.WithFields(logrus.Fields{
+		"Ticker": tickers[0],
+	}).Info("当前USDT ticker")
 	logger.Println(tickers)
 }
 
-func SpotBuy(config *RunConfig, orderAmount string, orderPrice string) {
+func SpotBuy(config *RunConfig, orderAmount string, orderPrice string, currencyPair string) {
 	client := gateapi.NewAPIClient(gateapi.NewConfiguration())
 	// Setting host is optional. It defaults to https://api.gateio.ws/api/v4
 	client.ChangeBasePath(config.BaseUrl)
@@ -53,7 +60,6 @@ func SpotBuy(config *RunConfig, orderAmount string, orderPrice string) {
 		Secret: config.ApiSecret,
 	})
 
-	currencyPair := "GT_USDT"
 	currency := "USDT"
 	cp, _, err := client.SpotApi.GetCurrencyPair(ctx, currencyPair)
 	if err != nil {
