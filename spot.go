@@ -74,7 +74,7 @@ func SpotBuy(config *RunConfig, orderAmount string, orderPrice string, currencyP
 	if err != nil {
 		panicGateError(err)
 	}
-	logger.Printf("selling against currency pair: %s\n", cp.Id)
+	logger.Printf("buyying against currency pair: %s\n", cp.Id)
 	//以usdt为最小单位 例如买GT币最少1u,orderAmount最少0.2
 	minAmount := cp.MinBaseAmount
 
@@ -176,6 +176,9 @@ func SpotBuy(config *RunConfig, orderAmount string, orderPrice string, currencyP
 			"成交价格": t.Price,
 		}).Info("已成交")
 	}
+	sellPrice := decimal.RequireFromString(orderPrice).Mul(decimal.NewFromInt(2))
+	sellPriceStr := sellPrice.String()
+	SpotSell(config, orderAmount, sellPriceStr, currencyPair)
 
 }
 
@@ -240,15 +243,15 @@ func SpotSell(config *RunConfig, orderAmount string, orderPrice string, currency
 		AutoBorrow:   false,
 	}
 	logger.Printf("place a spot %s order in %s with amount %s and price %s\n", newOrder.Side, newOrder.CurrencyPair, newOrder.Amount, newOrder.Price)
+	createdOrder, _, err := client.SpotApi.CreateOrder(ctx, newOrder)
+	if err != nil {
+		panicGateError(err)
+	}
 	logrus.WithFields(logrus.Fields{"order side": newOrder.Side,
 		"order cp": newOrder.CurrencyPair,
 		"挂单卖出数量":   newOrder.Amount,
 		"挂单卖出价格":   newOrder.Price,
 	}).Info("挂单成功")
-	createdOrder, _, err := client.SpotApi.CreateOrder(ctx, newOrder)
-	if err != nil {
-		panicGateError(err)
-	}
 	logger.Printf("order created with ID: %s, status: %s\n", createdOrder.Id, createdOrder.Status)
 	for createdOrder.Status == "open" {
 		order, _, err := client.SpotApi.GetOrder(ctx, createdOrder.Id, createdOrder.CurrencyPair)
@@ -262,7 +265,7 @@ func SpotSell(config *RunConfig, orderAmount string, orderPrice string, currency
 			"卖出数量":              order.Amount,
 			"卖出价格":              order.Price,
 		}).Info("等待挂单完全成交")
-		time.Sleep(time.Millisecond * 500)
+		time.Sleep(time.Millisecond * 1500)
 		if order.Status == "closed" {
 			logger.Printf("order %s filled: %s, left: %s\n", order.Id, order.FilledTotal, order.Left)
 			logrus.Info(fmt.Sprintf("order %s filled: %s, left: %s\n", order.Id, order.FilledTotal, order.Left))
